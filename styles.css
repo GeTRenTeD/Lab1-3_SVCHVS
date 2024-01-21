@@ -22,18 +22,35 @@ header{
   font-size: 3rem;
 }
 
+#genderFilter {
+  border-radius: 5px; 
+  background-color: #cacaca; 
+}
+
+#genderFilter option{
+  border-radius: 5px; 
+  background-color: #cacaca; 
+}
+
 #langSelect {
   margin-left: auto;
   margin-right: 20px;
-  padding: 8px; 
-  border: 1px solid #ccc; 
+  padding: 8px;  
   border-radius: 5px; 
-  background-color: #fff; 
+  background-color: #cacaca; 
 }
 
 #langSelect option {
-  background-color: #fff; 
+  background-color: #cacaca; 
   color: #333; 
+}
+
+#themeToggleBtn {
+  margin-left: auto;
+  margin-right: 0px;
+  padding: 8px;  
+  border-radius: 5px; 
+  background-color: #cacaca; 
 }
 
 body {
@@ -43,20 +60,35 @@ body {
     background-color: #f7f7f7;
   }
   
-  .container {
+  .theme-container.light-theme {
+    width: 90%;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--body-color-light);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     align-items: center;
     justify-content: center;
   }
-  
+
+  .theme-container.dark-theme {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #3b3b3b;
+    border-radius: 10px;
+    background-color: var(--container-color-dark);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+  }
+
   input {
     width: 100%;
     padding: 10px;
+    border-radius: 10px;
+    background-color: #cacaca;
 }
   select {
     margin-left:20px;
@@ -68,6 +100,7 @@ body {
     position: relative;
     margin-bottom: 10px;
     justify-self: center;
+    
   }
   
   #clearSearch {
@@ -87,8 +120,9 @@ body {
   }
   
   .character-card {
-    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.363);
     border-radius: 5px;
+    padding-top: 20px;
     padding: 10px;
     margin: 10px;
     text-align: center;
@@ -147,12 +181,14 @@ body {
 
   :root {
     --body-color-light: #fff;
-    --text-color-light: #000;
-    --hover-color-light: #000;
-  
-    --body-color-dark: #000;
+    --text-color-light: #292929;
+    --hover-color-light: #292929;
+    --container-color-light: #dbdbdb;
+
+    --body-color-dark: #292929;
     --text-color-dark: #fff;
     --hover-color-dark: #fff;
+    --container-color-dark: #3b3b3b;
   }
   
   body.light-theme {
@@ -164,5 +200,6 @@ body {
     background-color: var(--body-color-dark);
     color: var(--text-color-dark);
   }
+
   
   
