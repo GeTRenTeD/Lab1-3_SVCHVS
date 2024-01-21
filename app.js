@@ -26,6 +26,18 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching characters:', error));
     }
+
+    function saveLanguageToLocalStorage(lang) {
+      localStorage.setItem('selectedLanguage', lang);
+    }
+    
+    function changeLanguage() {
+      const langSelect = document.getElementById('langSelect');
+      const selectedLang = langSelect.value;
+      getTranslate(selectedLang);
+      saveLanguageToLocalStorage(selectedLang);
+      langSelect.value = selectedLang;
+    }
   
     function clearCharacterList() {
       characterList.innerHTML = '';
@@ -84,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         this.style.backgroundColor = '#007bff';
       });
       
+      document.getElementById('langSelect').addEventListener('change', changeLanguage);
     // Initial fetch
     fetchCharacters();
   });

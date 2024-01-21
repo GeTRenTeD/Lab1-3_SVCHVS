@@ -22,6 +22,20 @@ header{
   font-size: 3rem;
 }
 
+#langSelect {
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  background-color: #fff; 
+}
+
+#langSelect option {
+  background-color: #fff; 
+  color: #333; 
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -129,6 +143,26 @@ body {
     .character-card {
       margin: 10px 5px;
     }
+  }
+
+  :root {
+    --body-color-light: #fff;
+    --text-color-light: #000;
+    --hover-color-light: #000;
+  
+    --body-color-dark: #000;
+    --text-color-dark: #fff;
+    --hover-color-dark: #fff;
+  }
+  
+  body.light-theme {
+    background-color: var(--body-color-light);
+    color: var(--text-color-light);
+  }
+  
+  body.dark-theme {
+    background-color: var(--body-color-dark);
+    color: var(--text-color-dark);
   }
   
   

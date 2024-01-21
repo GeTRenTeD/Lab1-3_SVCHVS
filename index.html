@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="translate.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <title>Rick and Morty Characters</title>
+  
 </head>
-<header>
+<header class="header">
   <img class="headerLogo" src="favicon.png" alt="logo"/>
-  <div class="mainTag">Rickipedia</div>
+  <div class="mainTag" data-i18n="main-tag">Rickipedia</div>
+  <select id="langSelect">
+    <option value="en">English</option>
+    <option value="ru">Русский</option>
+  </select>
 </header>
 <body>
   <div class="container">
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search characters...">
+      <input type="text" id="searchInput" data-i18n="search-input" placeholder="Search characters...">
       <span id="clearSearch" class="clear-search">&#10006;</span>
     </div>
     <select id="genderFilter">
-      <option value="">All</option>
-      <option value="female">Female</option>
-      <option value="male">Male</option>
-      <option value="genderless">Genderless</option>
-      <option value="unknown">Unknown</option>
+      <option value="" data-i18n="allOption">All</option>
+      <option value="female" data-i18n="femaleOption">Female</option>
+      <option value="male" data-i18n="maleOption">Male</option>
+      <option value="genderless" data-i18n="genderlessOption">Genderless</option>
+      <option value="unknown" data-i18n="unknownOption">Unknown</option>
     </select>
     <div id="characterList" class="character-list"></div>
-    <button id="loadMoreBtn">Load more</button>
+    <button id="loadMoreBtn" data-i18n="load-more-btn">Load more</button>
 </div>
-<footer class="text-center">
+<footer class="text-center" data-i18n="footer">
   <p>&copy; 2024 Aleksey Savelev | <a href="https://github.com/GeTRenTeD" target="_blank">GitHub</a></p>
 </footer>
 <script src="app.js"></script>
