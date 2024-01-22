@@ -5,10 +5,36 @@ document.addEventListener('DOMContentLoaded', function () {
     const characterList = document.getElementById('characterList');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
   
+    //player
+    const audio = new Audio('sound.mp3'); 
+    const audioControlBtn = document.getElementById('audioControlBtn');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+
+    let isPlay = false;
+
+    function toggleAudio() {
+      if (isPlay) {
+        audio.pause();
+      } else {
+        audio.currentTime = 0;
+        audio.play();
+      }
+      isPlay = !isPlay;
+      updateBtnIcons();
+    }
+
+    function updateBtnIcons() {
+      playIcon.style.display = isPlay ? 'none' : 'block';
+      pauseIcon.style.display = isPlay ? 'block' : 'none';
+    }
+
+      audioControlBtn.addEventListener('click', toggleAudio);
+
     let page = 1;
     let currentSearch = '';
     let currentGenderFilter = '';
-  
+
     function fetchCharacters() {
       const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${currentSearch}&gender=${currentGenderFilter}`;
   
@@ -38,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
       saveLanguageToLocalStorage(selectedLang);
       langSelect.value = selectedLang;
     }
-// смена темы
+      // смена темы
     function toggleTheme() {
       const body = document.body;
       const themeContainers = document.querySelectorAll('.theme-container');
@@ -130,10 +156,10 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('langSelect').addEventListener('change', changeLanguage);
 
       const savedTheme = localStorage.getItem('selectedTheme');
-  if (savedTheme) {
-    document.body.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');
-    const themeContainers = document.querySelectorAll('.theme-container');
-    themeContainers.forEach(container => {
+        if (savedTheme) {
+      document.body.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');
+        const themeContainers = document.querySelectorAll('.theme-container');
+          themeContainers.forEach(container => {
       container.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');
     });
 
