@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
       themeContainers.forEach(container => {
         container.classList.toggle('light-theme');
         container.classList.toggle('dark-theme');
+        updateThemeToggleIcon(savedTheme);
       });
   
       // Сохранение текущей темы в localStorage
@@ -59,6 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function saveThemeToLocalStorage(theme) {
       localStorage.setItem('selectedTheme', theme);
     }
+
+    function updateThemeToggleIcon() {
+      const themeToggleIcon = document.getElementById('themeToggleIcon');
+      const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+  
+      themeToggleIcon.src = currentTheme === 'dark' ? 'moon.svg' : 'sun.svg';
+    }
+  
   
     function clearCharacterList() {
       characterList.innerHTML = '';
@@ -127,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
     themeContainers.forEach(container => {
       container.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');
     });
+
+    // Установка иконки в зависимости от сохраненной темы
+    updateThemeToggleIcon(savedTheme);
   }
     // Initial fetch
     fetchCharacters();
